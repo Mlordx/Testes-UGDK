@@ -1,0 +1,1 @@
+/home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/CMakeFiles/blank.dir

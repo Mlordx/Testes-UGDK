@@ -6,43 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/foca.h
-ugdk/action/entity.h
--
-ugdk/math/vector2D.h
--
-ugdk/action.h
--
-ugdk/graphic.h
--
-
-/home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/main.cc
-cstdio
--
-cstdlib
--
-ctime
--
-ugdk/action/task.h
--
-ugdk/action/scene.h
--
-ugdk/action/entity.h
--
-ugdk/base/engine.h
--
-ugdk/math/vector2D.h
--
-ugdk/input/inputmanager.h
--
-foca.h
-/home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/foca.h
+/home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/playerfoca.cc
 playerfoca.h
-/home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/playerfoca.h
-
-/home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/playerfoca.cc
-playerfoca.h
-/home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/playerfoca.h
+/home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/playerfoca.h
 ugdk/action/entity.h
 -
 ugdk/action/scene.h
@@ -64,7 +30,7 @@ ugdk/math/vector2D.h
 ugdk/input/inputmanager.h
 -
 
-/home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/playerfoca.h
+/home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/playerfoca.h
 ugdk/action/entity.h
 -
 ugdk/math/vector2D.h
@@ -204,10 +170,6 @@ ugdk/graphic.h
 ugdk/base/types.h
 -
 
-/usr/include/ugdk0.4/ugdk/action/task.h
-ugdk/util/uncopyable.h
--
-
 /usr/include/ugdk0.4/ugdk/audio.h
 
 /usr/include/ugdk0.4/ugdk/base/configuration.h
@@ -307,6 +269,4 @@ ugdk/base/types.h
 /usr/include/ugdk0.4/ugdk/time.h
 
 /usr/include/ugdk0.4/ugdk/util.h
-
-/usr/include/ugdk0.4/ugdk/util/uncopyable.h
 
