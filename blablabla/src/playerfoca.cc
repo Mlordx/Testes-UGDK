@@ -15,6 +15,7 @@
 #include <ugdk/input/inputmanager.h>
 
 // Internal Deps
+#define PI 3.14159265
 
 // Using
 using ugdk::Color;
@@ -33,21 +34,15 @@ PlayerFoca::PlayerFoca(double x, double y) : velocity_(0.0, 0.0), rotation_(0.0)
 }
 
 void PlayerFoca::Update(double dt) {
+
     Modifier* modifier = node_->modifier();
     Vector2D nova_pos = modifier->offset();
     
     velocity_ = Vector2D(0.0);
     rotation_ = modifier->rotation();
-    
+
     InputManager* input = INPUT_MANAGER();
-    if(input->KeyDown(ugdk::input::K_DOWN)) {
-        velocity_.x = ???;
-        velocity_.y = 200.0;
-    }
-    if(input->KeyDown(ugdk::input::K_UP)) {
-        velocity_.x = ???;
-        velocity_.y = -200.0;
-    }
+
     if(input->KeyDown(ugdk::input::K_RIGHT)) {
         rotation_ += 5.0 * dt;
         modifier->set_rotation(rotation_);
@@ -57,6 +52,15 @@ void PlayerFoca::Update(double dt) {
         modifier->set_rotation(rotation_ + 5.0*dt);
     }
     
+    if(input->KeyDown(ugdk::input::K_DOWN)) {
+        velocity_=Vector2D(0.0,200.0);
+        velocity_.Rotate(rotation_);
+    }
+    if(input->KeyDown(ugdk::input::K_UP)) {
+        velocity_=Vector2D(0.0,200.0);
+        velocity_.Rotate(-rotation_);
+    }
+
     nova_pos += velocity_ * dt;
     
     if(nova_pos.x + node_->drawable()->width()/2.0 > 800 || nova_pos.x < 0.0 + node_->drawable()->width()/2.0) nova_pos -= Vector2D(velocity_.x * dt, 0.0);

@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla
+CMAKE_SOURCE_DIR = /home/uspgamedev/pikachu/Testes-UGDK/blablabla
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla
+CMAKE_BINARY_DIR = /home/uspgamedev/pikachu/Testes-UGDK/blablabla
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/blank.dir/depend.make
@@ -48,17 +48,17 @@ include src/CMakeFiles/blank.dir/flags.make
 
 src/CMakeFiles/blank.dir/playerfoca.cc.o: src/CMakeFiles/blank.dir/flags.make
 src/CMakeFiles/blank.dir/playerfoca.cc.o: src/playerfoca.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/uspgamedev/pikachu/Testes-UGDK/blablabla/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/CMakeFiles/blank.dir/playerfoca.cc.o"
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/blank.dir/playerfoca.cc.o -c /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/playerfoca.cc
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/blank.dir/playerfoca.cc.o -c /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/playerfoca.cc
 
 src/CMakeFiles/blank.dir/playerfoca.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/blank.dir/playerfoca.cc.i"
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/playerfoca.cc > CMakeFiles/blank.dir/playerfoca.cc.i
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/playerfoca.cc > CMakeFiles/blank.dir/playerfoca.cc.i
 
 src/CMakeFiles/blank.dir/playerfoca.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/blank.dir/playerfoca.cc.s"
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/playerfoca.cc -o CMakeFiles/blank.dir/playerfoca.cc.s
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/playerfoca.cc -o CMakeFiles/blank.dir/playerfoca.cc.s
 
 src/CMakeFiles/blank.dir/playerfoca.cc.o.requires:
 .PHONY : src/CMakeFiles/blank.dir/playerfoca.cc.o.requires
@@ -72,17 +72,17 @@ src/CMakeFiles/blank.dir/playerfoca.cc.o.provides.build: src/CMakeFiles/blank.di
 
 src/CMakeFiles/blank.dir/foca.cc.o: src/CMakeFiles/blank.dir/flags.make
 src/CMakeFiles/blank.dir/foca.cc.o: src/foca.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/uspgamedev/pikachu/Testes-UGDK/blablabla/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/CMakeFiles/blank.dir/foca.cc.o"
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/blank.dir/foca.cc.o -c /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/foca.cc
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/blank.dir/foca.cc.o -c /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/foca.cc
 
 src/CMakeFiles/blank.dir/foca.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/blank.dir/foca.cc.i"
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/foca.cc > CMakeFiles/blank.dir/foca.cc.i
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/foca.cc > CMakeFiles/blank.dir/foca.cc.i
 
 src/CMakeFiles/blank.dir/foca.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/blank.dir/foca.cc.s"
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/foca.cc -o CMakeFiles/blank.dir/foca.cc.s
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/foca.cc -o CMakeFiles/blank.dir/foca.cc.s
 
 src/CMakeFiles/blank.dir/foca.cc.o.requires:
 .PHONY : src/CMakeFiles/blank.dir/foca.cc.o.requires
@@ -96,17 +96,17 @@ src/CMakeFiles/blank.dir/foca.cc.o.provides.build: src/CMakeFiles/blank.dir/foca
 
 src/CMakeFiles/blank.dir/main.cc.o: src/CMakeFiles/blank.dir/flags.make
 src/CMakeFiles/blank.dir/main.cc.o: src/main.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/uspgamedev/pikachu/Testes-UGDK/blablabla/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/CMakeFiles/blank.dir/main.cc.o"
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/blank.dir/main.cc.o -c /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/main.cc
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/blank.dir/main.cc.o -c /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/main.cc
 
 src/CMakeFiles/blank.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/blank.dir/main.cc.i"
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/main.cc > CMakeFiles/blank.dir/main.cc.i
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/main.cc > CMakeFiles/blank.dir/main.cc.i
 
 src/CMakeFiles/blank.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/blank.dir/main.cc.s"
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/main.cc -o CMakeFiles/blank.dir/main.cc.s
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/main.cc -o CMakeFiles/blank.dir/main.cc.s
 
 src/CMakeFiles/blank.dir/main.cc.o.requires:
 .PHONY : src/CMakeFiles/blank.dir/main.cc.o.requires
@@ -148,7 +148,7 @@ blank: /usr/lib/libpython2.6.so
 blank: src/CMakeFiles/blank.dir/build.make
 blank: src/CMakeFiles/blank.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../blank"
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/blank.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/blank.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/blank.dir/build: blank
@@ -160,10 +160,10 @@ src/CMakeFiles/blank.dir/requires: src/CMakeFiles/blank.dir/main.cc.o.requires
 .PHONY : src/CMakeFiles/blank.dir/requires
 
 src/CMakeFiles/blank.dir/clean:
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src && $(CMAKE_COMMAND) -P CMakeFiles/blank.dir/cmake_clean.cmake
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src && $(CMAKE_COMMAND) -P CMakeFiles/blank.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/blank.dir/clean
 
 src/CMakeFiles/blank.dir/depend:
-	cd /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src /home/uspgamedev/mlord/TESTANDOSOMESHIT/blablabla/src/CMakeFiles/blank.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/uspgamedev/pikachu/Testes-UGDK/blablabla /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src /home/uspgamedev/pikachu/Testes-UGDK/blablabla /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/CMakeFiles/blank.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/blank.dir/depend
 
