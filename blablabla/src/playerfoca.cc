@@ -13,6 +13,7 @@
 #include <ugdk/graphic/drawable/solidrectangle.h>
 #include <ugdk/math/vector2D.h>
 #include <ugdk/input/inputmanager.h>
+#include <iostream>
 
 // Internal Deps
 #define PI 3.14159265
@@ -44,23 +45,23 @@ void PlayerFoca::Update(double dt) {
     InputManager* input = INPUT_MANAGER();
 
     if(input->KeyDown(ugdk::input::K_RIGHT)) {
-        rotation_ += 5.0 * dt;
+        rotation_ -= 3.0 * dt;
         modifier->set_rotation(rotation_);
     }
     if(input->KeyDown(ugdk::input::K_LEFT)) {
-        rotation_ += 5.0 * dt;
-        modifier->set_rotation(rotation_ + 5.0*dt);
+        rotation_ += 3.0 * dt;
+        modifier->set_rotation(rotation_);
     }
     
     if(input->KeyDown(ugdk::input::K_DOWN)) {
         velocity_=Vector2D(0.0,200.0);
-        velocity_.Rotate(rotation_);
+        velocity_=velocity_.Rotate(-rotation_);
     }
     if(input->KeyDown(ugdk::input::K_UP)) {
-        velocity_=Vector2D(0.0,200.0);
-        velocity_.Rotate(-rotation_);
+        velocity_=Vector2D(0.0,-200.0);
+        velocity_ =velocity_.Rotate(-rotation_);
     }
-
+    
     nova_pos += velocity_ * dt;
     
     if(nova_pos.x + node_->drawable()->width()/2.0 > 800 || nova_pos.x < 0.0 + node_->drawable()->width()/2.0) nova_pos -= Vector2D(velocity_.x * dt, 0.0);

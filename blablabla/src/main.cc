@@ -9,11 +9,13 @@
 #include <ugdk/math/vector2D.h>
 #include <ugdk/input/inputmanager.h>
 
+
 #include "foca.h"
 #include "playerfoca.h"
 
 using ugdk::Vector2D;
 using ugdk::action::Scene;
+
 
 class EscTask : public ugdk::action::Task {
   public:
@@ -31,9 +33,14 @@ class EscTask : public ugdk::action::Task {
 
 int main(int argc, char *argv[]) {
     srand(time(NULL));
-
+    
+    
+    ugdk::Configuration engine_config;
+    engine_config.window_title = "FOCAS - USPGAMEDEV 2012";  
+    engine_config.base_path = "/data";
+    
     ugdk::Engine* engine = ugdk::Engine::reference();
-    engine->Initialize();
+    engine->Initialize(engine_config);
 
     Scene* scene = new Scene;
     scene->AddEntity(new PlayerFoca(50.0, 50.0));
