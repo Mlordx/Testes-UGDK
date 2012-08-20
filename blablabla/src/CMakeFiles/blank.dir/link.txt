@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/blank.dir/playerfoca.cc.o CMakeFiles/blank.dir/foca.cc.o CMakeFiles/blank.dir/main.cc.o  -o ../blank -rdynamic -lugdk0.4 -lGLU -lGL -lSM -lICE -lX11 -lXext -Wl,-Bstatic -lSDLmain -Wl,-Bdynamic -lSDL -lpthread -lSDL_mixer -lSDL_ttf -lSDL_image -llua5.1 -lm -lpython2.6 
