@@ -5,6 +5,7 @@
 #include <ugdk/action/entity.h>
 #include <ugdk/action/scene.h>
 #include <ugdk/base/engine.h>
+#include <ugdk/base/resourcemanager.h>
 #include <ugdk/base/types.h>
 #include <ugdk/graphic/drawable.h>
 #include <ugdk/graphic/modifier.h>
@@ -12,7 +13,6 @@
 #include <ugdk/graphic/drawable/texturedrectangle.h>
 #include <ugdk/input/inputmanager.h>
 #include <ugdk/math/vector2D.h>
-
 
 // Internal Deps
 
@@ -25,9 +25,12 @@ using ugdk::graphic::Modifier;
 using ugdk::graphic::Node;
 using ugdk::graphic::TexturedRectangle;
 using ugdk::input::InputManager;
+using ugdk::base::ResourceManager;
+using ugdk::graphic::Texture;
 
 PlayerFoca::PlayerFoca(double x, double y) : velocity_(0.0, 0.0), rotation_(0.0) {
-    TexturedRectangle* foquinha = new TexturedRectangle(Vector2D(50.0, 50.0)); //EDITAR ESSA LINHA
+    Texture* textura = ResourceManager::GetTextureFromFile("Foquinha_v0.1.jpg");
+    TexturedRectangle* foquinha = new TexturedRectangle(textura,Vector2D(50.0, 50.0));
     node_ = new Node(foquinha);
     node_->modifier()->set_offset(Vector2D(x, y));//muda pos inicial da...foca.
     node_->drawable()->set_hotspot(ugdk::graphic::Drawable::CENTER);
@@ -54,11 +57,11 @@ void PlayerFoca::Update(double dt) {
 
     if(input->KeyDown(ugdk::input::K_DOWN)) {
         //velocity_=Vector2D(0.0,200.0);
-        velocity_=Vector2D(0.0,200.0)->Rotate(-rotation_);
+        velocity_=Vector2D(0.0,200.0).Rotate(-rotation_);
     }
     if(input->KeyDown(ugdk::input::K_UP)) {
         //velocity_=Vector2D(0.0,-200.0);
-        velocity_ = Vector2D(0.0,-200.0)->Rotate(-rotation_);
+        velocity_ = Vector2D(0.0,-200.0).Rotate(-rotation_);
     }
 
     nova_pos += velocity_ * dt;

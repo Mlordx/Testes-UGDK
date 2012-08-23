@@ -5,7 +5,6 @@
 // External Deps
 #include <cstdio>
 #include <cstdlib>
-//#include <ctime>
 
 #include <ugdk/action/task.h>
 #include <ugdk/action/scene.h>
@@ -34,18 +33,16 @@ class EscTask : public ugdk::action::Task {
 };
 
 int main(int argc, char *argv[]) {
-    //srand(time(NULL));
-
 
     ugdk::Configuration engine_config;
-    engine_config->window_title = "FOCAS - USPGAMEDEV 2012"; //Adicionei Setinhas =D
-    engine_config->base_path = "/data";
+    engine_config.window_title = "FOCAS - USPGAMEDEV 2012"; 
+    engine_config.base_path = "data/";
 
     ugdk::Engine* engine = ugdk::Engine::reference();
     engine->Initialize(engine_config);
 
     Scene* scene = new Scene;
-    scene->AddEntity(new PlayerFoca(300.0, 400.0)); //Mudei a pos. inicial da player foca for the lulz
+    scene->AddEntity(new PlayerFoca(250.0, 350.0)); //Mudei a pos. inicial da player foca for the lulz
     scene->AddEntity(new Foca(250.0, 80.0));
     scene->AddEntity(new Foca(550.0, 120.0));
     scene->AddTask(new EscTask(scene));
