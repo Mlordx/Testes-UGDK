@@ -1,5 +1,6 @@
 // Header
 #include "playerfoca.h"
+#include "foca.h"
 
 // External Deps
 #include <ugdk/action/entity.h>
@@ -51,6 +52,7 @@ void PlayerFoca::Update(double dt) {
     rotation_ = modifier->rotation(); //Variavel que altera o vetor velocidade
 
     InputManager* input = INPUT_MANAGER();
+    Scene* scene = ugdk::Engine::reference()->CurrentScene();
 
     if(input->KeyDown(ugdk::input::K_RIGHT)) {
         rotation_ -= 3.0 * dt;
@@ -69,14 +71,18 @@ void PlayerFoca::Update(double dt) {
         //velocity_=Vector2D(0.0,-200.0);
         velocity_ = Vector2D(0.0,-200.0).Rotate(-rotation_);
     }
-
     nova_pos += velocity_ * dt;
-
     //Ifs que impedem as focas de sairem da tela =D
     if(nova_pos.x + node_->drawable()->width()/2.0 > 800 || nova_pos.x < 0.0 + node_->drawable()->width()/2.0) nova_pos -= Vector2D(velocity_.x * dt, 0.0);
     if(nova_pos.y + node_->drawable()->height()/2.0 > 600 || nova_pos.y < 0.0 + node_->drawable()->height()/2.0) nova_pos -= Vector2D(0.0, velocity_.y * dt);
 
     modifier->set_offset(nova_pos);
+    
+    if(input->KeyPressed(ugdk::input::K_q)) {
+        //velocity_=Vector2D(0.0,-200.0);
+        scene->AddEntity(new Foca(nova_pos.x,nova_pos.y));
+    }
+
 }
 
 void PlayerFoca::OnSceneAdd(Scene* scene) { //Adiciona a foca à scena no nó "node_"
