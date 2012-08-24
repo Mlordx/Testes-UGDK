@@ -5,12 +5,13 @@
 #include <ugdk/action/entity.h>
 #include <ugdk/action/scene.h>
 #include <ugdk/base/engine.h>
-#include <ugdk/base/resourcemanager.h>
+//#include <ugdk/base/resourcemanager.h>
 #include <ugdk/base/types.h>
-#include <ugdk/graphic/drawable.h>
+//#include <ugdk/graphic/drawable.h>
 #include <ugdk/graphic/modifier.h>
 #include <ugdk/graphic/node.h>
-#include <ugdk/graphic/drawable/texturedrectangle.h>
+#include <ugdk/graphic/drawable/sprite.h> 
+//#include <ugdk/graphic/drawable/texturedrectangle.h>
 #include <ugdk/input/inputmanager.h>
 #include <ugdk/math/vector2D.h>
 
@@ -23,17 +24,22 @@ using ugdk::Vector2D;
 using ugdk::action::Scene;
 using ugdk::graphic::Modifier;
 using ugdk::graphic::Node;
-using ugdk::graphic::TexturedRectangle;
+using ugdk::graphic::Sprite;
+//using ugdk::graphic::TexturedRectangle;
 using ugdk::input::InputManager;
-using ugdk::base::ResourceManager;
-using ugdk::graphic::Texture;
+//using ugdk::base::ResourceManager;
+//using ugdk::graphic::Texture;
 
 PlayerFoca::PlayerFoca(double x, double y) : velocity_(0.0, 0.0), rotation_(0.0) {
+/*
     Texture* textura = ResourceManager::GetTextureFromFile("Foquinha_v0.1.jpg");
     TexturedRectangle* foquinha = new TexturedRectangle(textura,Vector2D(50.0, 50.0));
-    node_ = new Node(foquinha);
+*/
+    Sprite* foca_sprite = new Sprite("foquinha");
+    node_ = new Node(foca_sprite);
     node_->modifier()->set_offset(Vector2D(x, y));//muda pos inicial da...foca.
-    node_->drawable()->set_hotspot(ugdk::graphic::Drawable::CENTER);
+    
+    
 }
 
 void PlayerFoca::Update(double dt) {
