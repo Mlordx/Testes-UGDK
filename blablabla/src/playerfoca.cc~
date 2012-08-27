@@ -88,7 +88,6 @@ void PlayerFoca::Update(double dt) {
     
     if(input->KeyReleased(ugdk::input::K_q)){
         scene->set_background_music(AUDIO_MANAGER()->LoadMusic("another_bites.ogg"));
-        scene->background_music()->PlayForever();
     }
 
 }

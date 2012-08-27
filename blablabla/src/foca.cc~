@@ -40,7 +40,7 @@ Foca::Foca(double x, double y) : velocity_(200, 0.0), life_(1e100) {
     node_->drawable()->set_hotspot(ugdk::graphic::Drawable::CENTER);
 }
 
-Foca::Foca(double x, double y,ugdk::Vector2D velocidade) : velocity_(velocidade), life_(2.0) {
+Foca::Foca(double x, double y,ugdk::Vector2D velocidade) : velocity_(velocidade), life_(5.0) {
     SolidRectangle* solid = new SolidRectangle(Vector2D(50.0, 50.0));
     solid->set_color(Color(randDouble(), randDouble(), randDouble(), 0.5));
     node_ = new Node(solid);
