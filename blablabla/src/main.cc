@@ -19,8 +19,8 @@
 #include <ugdk/modules.h>
 #include <pyramidworks/modules.h>
 #include <ugdk/script/scriptmanager.h>
-//#include <ugdk/script/languages/lua/luawrapper.h>      // lua not needed
-#include <ugdk/script/languages/python/pythonwrapper.h>
+#include <ugdk/script/languages/lua/luawrapper.h>     
+//#include <ugdk/script/languages/python/pythonwrapper.h> // python not needed
 
 // Using
 using ugdk::Vector2D;
@@ -28,22 +28,22 @@ using ugdk::action::Scene;
 using ugdk::AudioManager;
 
 static void InitScripts() {
-    //using ugdk::script::python::LuaWrapper;
-    using ugdk::script::python::PythonWrapper;
+    using ugdk::script::lua::LuaWrapper;
+    //using ugdk::script::python::PythonWrapper;
     
     //inicializando lua
-    /*
     LuaWrapper* lua_wrapper = new LuaWrapper();
-    ugdk::RegisterLuaModules(lua_wrapper);
-    pyramidworks::RegisterLuaModules(lua_wrapper);
-    SCRIPT_MANAGER()->Register("Lua", lua_wrapper);
-    */
+    ugdk::RegisterLuaModules(lua_wrapper);
+    pyramidworks::RegisterLuaModules(lua_wrapper);
+    SCRIPT_MANAGER()->Register("Lua", lua_wrapper);
 
+    /*
     //inicializando python
     PythonWrapper* py_wrapper = new PythonWrapper();
     ugdk::RegisterPythonModules(py_wrapper);
     pyramidworks::RegisterPythonModules(py_wrapper);
     SCRIPT_MANAGER()->Register("Python", py_wrapper);
+    */
 }
 
 class EscTask : public ugdk::action::Task {
