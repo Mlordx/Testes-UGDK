@@ -17,7 +17,6 @@
 class Foca : public ugdk::action::Entity {
   public:
     Foca(double x, double y);
-    Foca(double x, double y,ugdk::Vector2D velocidadeFoca);
     ~Foca();
     void Update(double dt);
     void OnSceneAdd(ugdk::action::Scene* scene);
@@ -25,7 +24,6 @@ class Foca : public ugdk::action::Entity {
   private:
     ugdk::Vector2D velocity_;
     ugdk::graphic::Node* node_;
-    double life_;
 };
 
 #endif // FOCA_H
