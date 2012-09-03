@@ -77,6 +77,21 @@ void Foca::Update(double dt) {
     
         velocity_.x *= -1;
     }
+
+    if(nova_pos.y + node_->drawable()->height()/2.0 > 600) {
+        pode_andar = modifier->offset().y + node_->drawable()->height()/2.0 - 600;
+    
+        nova_pos.y += pode_andar - (velocity_.y * dt - pode_andar);
+        
+        velocity_.y *= -1;
+    } else if (nova_pos.y < 0.0 + node_->drawable()->height()/2.0) {
+        pode_andar = modifier->offset().y - node_->drawable()->height()/2.0;
+    
+        nova_pos.y += pode_andar - (velocity_.y * dt - pode_andar);
+    
+        velocity_.y *= -1;
+    }
+
     
     modifier->set_offset(nova_pos);
 }
