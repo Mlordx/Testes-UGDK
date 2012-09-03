@@ -32,16 +32,20 @@ double randDouble2() {
     return rand() / static_cast<double>(RAND_MAX);
 }
 
-Rastro::Rastro(double x, double y,ugdk::Vector2D velocidade) : velocity_(velocidade), maxLife_(2.5), life_ (maxLife_) {
+Rastro::Rastro(double x, double y,ugdk::Vector2D velocidade, double rotation) : velocity_(velocidade), maxLife_(2.5), life_ (maxLife_) {
     SolidRectangle* solid = new SolidRectangle(Vector2D(50.0, 50.0));
     solid->set_color(Color(randDouble2(), randDouble2(), randDouble2(), 1));
     node_ = new Node(solid);
     node_->modifier()->set_offset(Vector2D(x, y));
     node_->drawable()->set_hotspot(ugdk::graphic::Drawable::CENTER);
+    node_->modifier()->set_rotation(rotation);
+    if (velocity_.NormOne() == 0) {
+        velocity_=Vector2D(0.0,200.0).Rotate(-rotation);
+    }
 }
 
 Rastro::~Rastro(){
-delete node_;
+    delete node_;
 } 
 
 void Rastro::Update(double dt) {

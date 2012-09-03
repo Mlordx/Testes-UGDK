@@ -19,7 +19,7 @@ using ugdk::Color;
 
 class Rastro : public ugdk::action::Entity {
   public:
-    Rastro(double x, double y, ugdk::Vector2D velocidade);
+    Rastro(double x, double y, ugdk::Vector2D velocidade, double rotation);
     ~Rastro();
     void Update(double dt);
     void OnSceneAdd(ugdk::action::Scene* scene);

@@ -79,7 +79,7 @@ void PlayerFoca::Update(double dt) {
     modifier->set_offset(nova_pos);
     
     if(input->KeyDown(ugdk::input::K_q)) {
-        scene->AddEntity(new Rastro(nova_pos.x,nova_pos.y,-velocity_));
+        scene->AddEntity(new Rastro(nova_pos.x,nova_pos.y,-velocity_,rotation_));
     }
     
     if(input->KeyPressed(ugdk::input::K_q)){
