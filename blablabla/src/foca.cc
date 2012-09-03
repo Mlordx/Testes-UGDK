@@ -32,15 +32,7 @@ double randDouble() {
     return rand() / static_cast<double>(RAND_MAX);
 }
 
-Foca::Foca(double x, double y) : velocity_(200, 0.0), life_(1e100) {
-    SolidRectangle* solid = new SolidRectangle(Vector2D(50.0, 50.0));
-    solid->set_color(Color(randDouble(), randDouble(), randDouble(), 0.5));
-    node_ = new Node(solid);
-    node_->modifier()->set_offset(Vector2D(x, y));
-    node_->drawable()->set_hotspot(ugdk::graphic::Drawable::CENTER);
-}
-
-Foca::Foca(double x, double y,ugdk::Vector2D velocidade) : velocity_(velocidade), life_(2.0) {
+Foca::Foca(double x, double y) : velocity_(200, 0.0) {
     SolidRectangle* solid = new SolidRectangle(Vector2D(50.0, 50.0));
     solid->set_color(Color(randDouble(), randDouble(), randDouble(), 0.5));
     node_ = new Node(solid);
@@ -58,12 +50,6 @@ void Foca::Update(double dt) {
     double pode_andar = 0.0;
     
     nova_pos += velocity_ * dt;
-    
-    
-    life_ -= dt;
-    
-    if(life_ <= 0 /*MORTEEEEEEEEEEEEE*/) to_be_removed_ = true; 
-    
     
     if(nova_pos.x + node_->drawable()->width()/2.0 > 800) {
         pode_andar = modifier->offset().x + node_->drawable()->width()/2.0 - 800;
