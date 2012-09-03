@@ -1,6 +1,6 @@
 
 // Header
-#include "foca.h"
+#include "rastro.h"
 
 // External Deps
 #include <ugdk/action/entity.h>
@@ -28,42 +28,36 @@ using ugdk::graphic::SolidRectangle;
 using ugdk::input::InputManager;
 
 
-double randDouble() {
+double randDouble2() {
     return rand() / static_cast<double>(RAND_MAX);
 }
 
-Foca::Foca(double x, double y) : velocity_(200, 0.0), life_(1e100) {
+Rastro::Rastro(double x, double y,ugdk::Vector2D velocidade) : velocity_(velocidade), maxLife_(2.5), life_ (maxLife_) {
     SolidRectangle* solid = new SolidRectangle(Vector2D(50.0, 50.0));
-    solid->set_color(Color(randDouble(), randDouble(), randDouble(), 0.5));
+    solid->set_color(Color(randDouble2(), randDouble2(), randDouble2(), 1));
     node_ = new Node(solid);
     node_->modifier()->set_offset(Vector2D(x, y));
     node_->drawable()->set_hotspot(ugdk::graphic::Drawable::CENTER);
 }
 
-Foca::Foca(double x, double y,ugdk::Vector2D velocidade) : velocity_(velocidade), life_(2.0) {
-    SolidRectangle* solid = new SolidRectangle(Vector2D(50.0, 50.0));
-    solid->set_color(Color(randDouble(), randDouble(), randDouble(), 0.5));
-    node_ = new Node(solid);
-    node_->modifier()->set_offset(Vector2D(x, y));
-    node_->drawable()->set_hotspot(ugdk::graphic::Drawable::CENTER);
-}
-
-Foca::~Foca(){
+Rastro::~Rastro(){
 delete node_;
 } 
 
-void Foca::Update(double dt) {
+void Rastro::Update(double dt) {
     Modifier* modifier = node_->modifier();
     Vector2D nova_pos = modifier->offset();
     double pode_andar = 0.0;
     
     nova_pos += velocity_ * dt;
-    
-    
+
     life_ -= dt;
     
     if(life_ <= 0 /*MORTEEEEEEEEEEEEE*/) to_be_removed_ = true; 
     
+    cor_ =  node_->modifier()->color();
+    cor_.set_a(0.5 - (maxLife_ -life_)/(2 * maxLife_));
+    node_->modifier()->set_color(cor_);
     
     if(nova_pos.x + node_->drawable()->width()/2.0 > 800) {
         pode_andar = modifier->offset().x + node_->drawable()->width()/2.0 - 800;
@@ -97,7 +91,7 @@ void Foca::Update(double dt) {
     modifier->set_offset(nova_pos);
 }
 
-void Foca::OnSceneAdd(Scene* scene) {
+void Rastro::OnSceneAdd(Scene* scene) {
     scene->content_node()->AddChild(node_);
 }
 

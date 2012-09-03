@@ -1,5 +1,6 @@
 // Header
 #include "foca.h"
+#include "rastro.h"
 #include "playerfoca.h"
 
 // External Deps

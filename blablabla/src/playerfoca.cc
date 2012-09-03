@@ -1,6 +1,7 @@
 // Header
 #include "playerfoca.h"
 #include "foca.h"
+#include "rastro.h"
 
 // External Deps
 #include <ugdk/action/entity.h>
@@ -78,7 +79,7 @@ void PlayerFoca::Update(double dt) {
     modifier->set_offset(nova_pos);
     
     if(input->KeyDown(ugdk::input::K_q)) {
-        scene->AddEntity(new Foca(nova_pos.x,nova_pos.y,-velocity_));
+        scene->AddEntity(new Rastro(nova_pos.x,nova_pos.y,-velocity_));
     }
     
     if(input->KeyPressed(ugdk::input::K_q)){

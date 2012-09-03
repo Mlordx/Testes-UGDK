@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-set(GAME_SRCS "playerfoca.cc" "foca.cc" "main.cc")
+set(GAME_SRCS playerfoca.cc foca.cc main.cc rastro.cc)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 if (UNIX OR MINGW)
