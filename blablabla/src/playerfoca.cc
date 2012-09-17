@@ -13,10 +13,12 @@
 //#include <ugdk/graphic/drawable.h>
 #include <ugdk/graphic/modifier.h>
 #include <ugdk/graphic/node.h>
-#include <ugdk/graphic/drawable/sprite.h> 
+#include <ugdk/graphic/drawable/sprite.h>
 //#include <ugdk/graphic/drawable/texturedrectangle.h>
 #include <ugdk/input/inputmanager.h>
 #include <ugdk/math/vector2D.h>
+#include <pyramidworks/collision/collisionobject.h>
+#include <pyramidworks/geometry/rect.h>
 
 // Internal Deps
 
@@ -32,8 +34,10 @@ using ugdk::graphic::Sprite;
 using ugdk::input::InputManager;
 //using ugdk::base::ResourceManager;
 //using ugdk::graphic::Texture;
+using pyramidworks::collision::CollisionManager;
+using pyramidworks::collision::CollisionObject;
 
-PlayerFoca::PlayerFoca(double x, double y) : velocity_(0.0, 0.0), rotation_(0.0) {
+PlayerFoca::PlayerFoca(double x, double y, CollisionManager* manager) : velocity_(0.0, 0.0), rotation_(0.0) {
 /*
     Texture* textura = ResourceManager::GetTextureFromFile("Foquinha_v0.1.jpg");
     TexturedRectangle* foquinha = new TexturedRectangle(textura,Vector2D(50.0, 50.0));
@@ -41,8 +45,15 @@ PlayerFoca::PlayerFoca(double x, double y) : velocity_(0.0, 0.0), rotation_(0.0)
     Sprite* foca_sprite = new Sprite("foquinha");
     node_ = new Node(foca_sprite);
     node_->modifier()->set_offset(Vector2D(x, y));//muda pos inicial da...foca.
-    
-    
+
+
+    // CRIAR COLLISION OBJET AQUI
+    CollisionObject* obj = new CollisionObject(manager, this);
+    // torox
+
+    obj->InitializeCollisionClass("focaHero");
+    obj->set_shape(new pyramidworks::geometry::Rect(100.0, 100.0));
+
 }
 
 void PlayerFoca::Update(double dt) {
@@ -77,16 +88,16 @@ void PlayerFoca::Update(double dt) {
     if(nova_pos.y + node_->drawable()->height()/2.0 > 600 || nova_pos.y < 0.0 + node_->drawable()->height()/2.0) nova_pos -= Vector2D(0.0, velocity_.y * dt);
 
     modifier->set_offset(nova_pos);
-    
+
     if(input->KeyDown(ugdk::input::K_q)) {
         scene->AddEntity(new Rastro(nova_pos.x,nova_pos.y,-velocity_,rotation_));
     }
-    
+
     if(input->KeyPressed(ugdk::input::K_q)){
         scene->set_background_music(AUDIO_MANAGER()->LoadMusic("nyancat.mp3"));
         scene->background_music()->PlayForever();
     }
-    
+
     if(input->KeyReleased(ugdk::input::K_q)){
         scene->set_background_music(AUDIO_MANAGER()->LoadMusic("another_bites.ogg"));
         scene->background_music()->PlayForever();

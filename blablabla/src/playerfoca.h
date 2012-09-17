@@ -13,11 +13,12 @@
 // Forward Declarations
 #include <ugdk/action.h>
 #include <ugdk/graphic.h>
+#include <pyramidworks/collision.h>
 
 
 class PlayerFoca : public ugdk::action::Entity {
   public:
-    PlayerFoca(double x, double y);
+    PlayerFoca(double x, double y, pyramidworks::collision::CollisionManager* manager);
     void Update(double dt);
     void OnSceneAdd(ugdk::action::Scene* scene);
 
