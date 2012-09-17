@@ -26,60 +26,67 @@ using ugdk::graphic::Modifier;
 using ugdk::graphic::Node;
 using ugdk::graphic::SolidRectangle;
 using ugdk::input::InputManager;
+using pyramidworks::collision::CollisionManager;
+using pyramidworks::collision::CollisionObject;
 
 
 double randDouble() {
     return rand() / static_cast<double>(RAND_MAX);
 }
 
-Foca::Foca(double x, double y) : velocity_(200, 0.0) {
+Foca::Foca(double x, double y,CollisionManager* manager) : velocity_(200, 0.0) {
     SolidRectangle* solid = new SolidRectangle(Vector2D(50.0, 50.0));
     solid->set_color(Color(randDouble(), randDouble(), randDouble(), 0.5));
     node_ = new Node(solid);
     node_->modifier()->set_offset(Vector2D(x, y));
     node_->drawable()->set_hotspot(ugdk::graphic::Drawable::CENTER);
+
+    CollisionObject* obj = new CollisionObject(manager,this);
+
+    obj->InitializeCollisionClass("gFoca");
+    obj->set_shape(new pyramidworks::geometry::Rect(50.0, 50.0));
 }
 
 Foca::~Foca(){
 delete node_;
-} 
+}
 
 void Foca::Update(double dt) {
     Modifier* modifier = node_->modifier();
     Vector2D nova_pos = modifier->offset();
     double pode_andar = 0.0;
-    
+
     nova_pos += velocity_ * dt;
-    
+
     if(nova_pos.x + node_->drawable()->width()/2.0 > 800) {
         pode_andar = modifier->offset().x + node_->drawable()->width()/2.0 - 800;
-    
+
         nova_pos.x += pode_andar - (velocity_.x * dt - pode_andar);
-        
+
         velocity_.x *= -1;
     } else if (nova_pos.x < 0.0 + node_->drawable()->width()/2.0) {
         pode_andar = modifier->offset().x - node_->drawable()->width()/2.0;
-    
+
         nova_pos.x += pode_andar - (velocity_.x * dt - pode_andar);
-    
+
         velocity_.x *= -1;
     }
 
     if(nova_pos.y + node_->drawable()->height()/2.0 > 600) {
         pode_andar = modifier->offset().y + node_->drawable()->height()/2.0 - 600;
-    
+
         nova_pos.y += pode_andar - (velocity_.y * dt - pode_andar);
-        
+
         velocity_.y *= -1;
     } else if (nova_pos.y < 0.0 + node_->drawable()->height()/2.0) {
         pode_andar = modifier->offset().y - node_->drawable()->height()/2.0;
-    
+
         nova_pos.y += pode_andar - (velocity_.y * dt - pode_andar);
-    
+
         velocity_.y *= -1;
     }
 
-    
+
     modifier->set_offset(nova_pos);
 }
 

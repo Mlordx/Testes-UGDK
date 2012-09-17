@@ -94,8 +94,8 @@ int main(int argc, char *argv[]) {
     createCollisionStuff();
     Scene* scene = new Scene;
     scene->AddEntity(new PlayerFoca(250.0, 350.0, collision_manager)); //Mudei a pos. inicial da player foca for the lulz
-    scene->AddEntity(new Foca(250.0, 80.0));
-    scene->AddEntity(new Foca(550.0, 120.0));
+    scene->AddEntity(new Foca(250.0, 80.0,collision_manager));
+    scene->AddEntity(new Foca(550.0, 120.0,collision_manager));
     scene->AddTask(new EscTask(scene));
     scene->set_background_music(AUDIO_MANAGER()->LoadMusic("another_bites.ogg"));
 

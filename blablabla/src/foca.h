@@ -12,11 +12,16 @@
 // Forward Declarations
 #include <ugdk/action.h>
 #include <ugdk/graphic.h>
+#include <pyramidworks/geometry/rect.h>
+#include <pyramidworks/collision/collisionobject.h>
 
+// Using
+using pyramidworks::collision::CollisionManager;
+using pyramidworks::collision::CollisionObject;
 
 class Foca : public ugdk::action::Entity {
   public:
-    Foca(double x, double y);
+    Foca(double x, double y,CollisionManager* manager);
     ~Foca();
     void Update(double dt);
     void OnSceneAdd(ugdk::action::Scene* scene);

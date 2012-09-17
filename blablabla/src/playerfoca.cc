@@ -52,7 +52,7 @@ PlayerFoca::PlayerFoca(double x, double y, CollisionManager* manager) : velocity
     // torox
 
     obj->InitializeCollisionClass("focaHero");
-    obj->set_shape(new pyramidworks::geometry::Rect(100.0, 100.0));
+    obj->set_shape(new pyramidworks::geometry::Rect(50.0, 50.0));
 
 }
 
