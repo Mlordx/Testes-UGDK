@@ -2,6 +2,7 @@
 #include "playerfoca.h"
 #include "foca.h"
 #include "rastro.h"
+#include "collision.h"
 
 // External Deps
 #include <ugdk/action/entity.h>
@@ -18,7 +19,10 @@
 #include <ugdk/input/inputmanager.h>
 #include <ugdk/math/vector2D.h>
 #include <pyramidworks/collision/collisionobject.h>
+#include <pyramidworks/collision/collisionmanager.h>
 #include <pyramidworks/geometry/rect.h>
+
+#include <stdio.h>
 
 // Internal Deps
 
@@ -37,6 +41,8 @@ using ugdk::input::InputManager;
 using pyramidworks::collision::CollisionManager;
 using pyramidworks::collision::CollisionObject;
 
+CollisionObject* obj;
+
 PlayerFoca::PlayerFoca(double x, double y, CollisionManager* manager) : velocity_(0.0, 0.0), rotation_(0.0) {
 /*
     Texture* textura = ResourceManager::GetTextureFromFile("Foquinha_v0.1.jpg");
@@ -46,20 +52,25 @@ PlayerFoca::PlayerFoca(double x, double y, CollisionManager* manager) : velocity
     node_ = new Node(foca_sprite);
     node_->modifier()->set_offset(Vector2D(x, y));//muda pos inicial da...foca.
 
-
     // CRIAR COLLISION OBJET AQUI
-    CollisionObject* obj = new CollisionObject(manager, this);
+    obj = new CollisionObject(manager, this);
     // torox
 
     obj->InitializeCollisionClass("focaHero");
     obj->set_shape(new pyramidworks::geometry::Rect(50.0, 50.0));
 
+    ///////////////////////////////////////////////////////////////////
+    obj->AddCollisionLogic("gFoca", new Bolo());
+    obj->StartColliding();
 }
 
 void PlayerFoca::Update(double dt) {
 
     Modifier* modifier = node_->modifier();
     Vector2D nova_pos = modifier->offset();
+
+    obj->MoveTo(nova_pos);
+
 
     velocity_ = Vector2D(0.0); //Velocidade da foca
     rotation_ = modifier->rotation(); //Variavel que altera o vetor velocidade

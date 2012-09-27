@@ -16,6 +16,7 @@
 
 #include <iostream>
 
+
 // Internal Deps
 
 // Using
@@ -29,6 +30,7 @@ using ugdk::input::InputManager;
 using pyramidworks::collision::CollisionManager;
 using pyramidworks::collision::CollisionObject;
 
+CollisionObject* object;
 
 double randDouble() {
     return rand() / static_cast<double>(RAND_MAX);
@@ -41,10 +43,11 @@ Foca::Foca(double x, double y,CollisionManager* manager) : velocity_(200, 0.0) {
     node_->modifier()->set_offset(Vector2D(x, y));
     node_->drawable()->set_hotspot(ugdk::graphic::Drawable::CENTER);
 
-    CollisionObject* obj = new CollisionObject(manager,this);
+    object = new CollisionObject(manager,this);
 
-    obj->InitializeCollisionClass("gFoca");
-    obj->set_shape(new pyramidworks::geometry::Rect(50.0, 50.0));
+    object->InitializeCollisionClass("gFoca");
+    object->set_shape(new pyramidworks::geometry::Rect(50.0, 50.0));
+    object->StartColliding();
 }
 
 Foca::~Foca(){
@@ -88,6 +91,7 @@ void Foca::Update(double dt) {
 
 
     modifier->set_offset(nova_pos);
+    object->MoveTo(nova_pos);
 }
 
 void Foca::OnSceneAdd(Scene* scene) {

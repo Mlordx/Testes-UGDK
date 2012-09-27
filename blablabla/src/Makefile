@@ -8,7 +8,7 @@ default_target: all
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -35,19 +35,22 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/uspgamedev/pikachu/Testes-UGDK/blablabla
+CMAKE_SOURCE_DIR = /home/mlord/Git/Testes-UGDK/blablabla
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/uspgamedev/pikachu/Testes-UGDK/blablabla
+CMAKE_BINARY_DIR = /home/mlord/Git/Testes-UGDK/blablabla
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -66,14 +69,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(CMAKE_COMMAND) -E cmake_progress_start /home/uspgamedev/pikachu/Testes-UGDK/blablabla/CMakeFiles /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src/CMakeFiles/progress.marks
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/uspgamedev/pikachu/Testes-UGDK/blablabla/CMakeFiles 0
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(CMAKE_COMMAND) -E cmake_progress_start /home/mlord/Git/Testes-UGDK/blablabla/CMakeFiles /home/mlord/Git/Testes-UGDK/blablabla/src/CMakeFiles/progress.marks
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mlord/Git/Testes-UGDK/blablabla/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -82,22 +85,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/blank.dir/rule:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/blank.dir/rule
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/blank.dir/rule
 .PHONY : src/CMakeFiles/blank.dir/rule
 
 # Convenience name for target.
@@ -106,7 +109,7 @@ blank: src/CMakeFiles/blank.dir/rule
 
 # fast build rule for target.
 blank/fast:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/build
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/build
 .PHONY : blank/fast
 
 foca.o: foca.cc.o
@@ -114,7 +117,7 @@ foca.o: foca.cc.o
 
 # target to build an object file
 foca.cc.o:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/foca.cc.o
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/foca.cc.o
 .PHONY : foca.cc.o
 
 foca.i: foca.cc.i
@@ -122,7 +125,7 @@ foca.i: foca.cc.i
 
 # target to preprocess a source file
 foca.cc.i:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/foca.cc.i
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/foca.cc.i
 .PHONY : foca.cc.i
 
 foca.s: foca.cc.s
@@ -130,7 +133,7 @@ foca.s: foca.cc.s
 
 # target to generate assembly for a file
 foca.cc.s:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/foca.cc.s
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/foca.cc.s
 .PHONY : foca.cc.s
 
 main.o: main.cc.o
@@ -138,7 +141,7 @@ main.o: main.cc.o
 
 # target to build an object file
 main.cc.o:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/main.cc.o
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/main.cc.o
 .PHONY : main.cc.o
 
 main.i: main.cc.i
@@ -146,7 +149,7 @@ main.i: main.cc.i
 
 # target to preprocess a source file
 main.cc.i:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/main.cc.i
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/main.cc.i
 .PHONY : main.cc.i
 
 main.s: main.cc.s
@@ -154,7 +157,7 @@ main.s: main.cc.s
 
 # target to generate assembly for a file
 main.cc.s:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/main.cc.s
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/main.cc.s
 .PHONY : main.cc.s
 
 playerfoca.o: playerfoca.cc.o
@@ -162,7 +165,7 @@ playerfoca.o: playerfoca.cc.o
 
 # target to build an object file
 playerfoca.cc.o:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/playerfoca.cc.o
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/playerfoca.cc.o
 .PHONY : playerfoca.cc.o
 
 playerfoca.i: playerfoca.cc.i
@@ -170,7 +173,7 @@ playerfoca.i: playerfoca.cc.i
 
 # target to preprocess a source file
 playerfoca.cc.i:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/playerfoca.cc.i
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/playerfoca.cc.i
 .PHONY : playerfoca.cc.i
 
 playerfoca.s: playerfoca.cc.s
@@ -178,8 +181,32 @@ playerfoca.s: playerfoca.cc.s
 
 # target to generate assembly for a file
 playerfoca.cc.s:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/playerfoca.cc.s
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/playerfoca.cc.s
 .PHONY : playerfoca.cc.s
+
+rastro.o: rastro.cc.o
+.PHONY : rastro.o
+
+# target to build an object file
+rastro.cc.o:
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/rastro.cc.o
+.PHONY : rastro.cc.o
+
+rastro.i: rastro.cc.i
+.PHONY : rastro.i
+
+# target to preprocess a source file
+rastro.cc.i:
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/rastro.cc.i
+.PHONY : rastro.cc.i
+
+rastro.s: rastro.cc.s
+.PHONY : rastro.s
+
+# target to generate assembly for a file
+rastro.cc.s:
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(MAKE) -f src/CMakeFiles/blank.dir/build.make src/CMakeFiles/blank.dir/rastro.cc.s
+.PHONY : rastro.cc.s
 
 # Help Target
 help:
@@ -199,6 +226,9 @@ help:
 	@echo "... playerfoca.o"
 	@echo "... playerfoca.i"
 	@echo "... playerfoca.s"
+	@echo "... rastro.o"
+	@echo "... rastro.i"
+	@echo "... rastro.s"
 .PHONY : help
 
 
@@ -210,6 +240,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/uspgamedev/pikachu/Testes-UGDK/blablabla && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/mlord/Git/Testes-UGDK/blablabla && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

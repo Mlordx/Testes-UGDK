@@ -1,4 +1,4 @@
-# Install script for directory: /home/uspgamedev/pikachu/Testes-UGDK/blablabla/src
+# Install script for directory: /home/mlord/Git/Testes-UGDK/blablabla/src
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
