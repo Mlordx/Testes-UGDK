@@ -29,6 +29,7 @@ class Foca : public ugdk::action::Entity {
   private:
     ugdk::Vector2D velocity_;
     ugdk::graphic::Node* node_;
+    CollisionObject* object_;
 };
 
 #endif // FOCA_H

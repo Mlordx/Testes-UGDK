@@ -60,8 +60,9 @@ PlayerFoca::PlayerFoca(double x, double y, CollisionManager* manager) : velocity
     obj->set_shape(new pyramidworks::geometry::Rect(50.0, 50.0));
 
     ///////////////////////////////////////////////////////////////////
-    obj->AddCollisionLogic("gFoca", new Bolo());
+    obj->AddCollisionLogic("gFoca", new Bolo()); // Bolo = wubwub
     obj->StartColliding();
+    obj->MoveTo(Vector2D(x,y));
 }
 
 void PlayerFoca::Update(double dt) {
@@ -69,7 +70,7 @@ void PlayerFoca::Update(double dt) {
     Modifier* modifier = node_->modifier();
     Vector2D nova_pos = modifier->offset();
 
-    obj->MoveTo(nova_pos);
+    
 
 
     velocity_ = Vector2D(0.0); //Velocidade da foca
@@ -99,6 +100,7 @@ void PlayerFoca::Update(double dt) {
     if(nova_pos.y + node_->drawable()->height()/2.0 > 600 || nova_pos.y < 0.0 + node_->drawable()->height()/2.0) nova_pos -= Vector2D(0.0, velocity_.y * dt);
 
     modifier->set_offset(nova_pos);
+    obj->MoveTo(nova_pos);
 
     if(input->KeyDown(ugdk::input::K_q)) {
         scene->AddEntity(new Rastro(nova_pos.x,nova_pos.y,-velocity_,rotation_));

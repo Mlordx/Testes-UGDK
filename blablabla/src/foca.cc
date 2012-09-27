@@ -30,7 +30,7 @@ using ugdk::input::InputManager;
 using pyramidworks::collision::CollisionManager;
 using pyramidworks::collision::CollisionObject;
 
-CollisionObject* object;
+
 
 double randDouble() {
     return rand() / static_cast<double>(RAND_MAX);
@@ -42,12 +42,13 @@ Foca::Foca(double x, double y,CollisionManager* manager) : velocity_(200, 0.0) {
     node_ = new Node(solid);
     node_->modifier()->set_offset(Vector2D(x, y));
     node_->drawable()->set_hotspot(ugdk::graphic::Drawable::CENTER);
+    
+    object_ = new CollisionObject(manager,this);
 
-    object = new CollisionObject(manager,this);
-
-    object->InitializeCollisionClass("gFoca");
-    object->set_shape(new pyramidworks::geometry::Rect(50.0, 50.0));
-    object->StartColliding();
+    object_->InitializeCollisionClass("gFoca");
+    object_->set_shape(new pyramidworks::geometry::Rect(50.0, 50.0));
+    object_->StartColliding();
+    object_->MoveTo(Vector2D(x,y));
 }
 
 Foca::~Foca(){
@@ -91,7 +92,7 @@ void Foca::Update(double dt) {
 
 
     modifier->set_offset(nova_pos);
-    object->MoveTo(nova_pos);
+    object_->MoveTo(nova_pos);
 }
 
 void Foca::OnSceneAdd(Scene* scene) {

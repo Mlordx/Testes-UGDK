@@ -76,7 +76,6 @@ void createCollisionStuff(){
   collision_manager->Generate("focaHero");
   collision_manager->Generate("gFoca");
   collision_manager->Generate("wall");
-
 }
 
 int main(int argc, char *argv[]) {
@@ -98,6 +97,7 @@ int main(int argc, char *argv[]) {
     scene->AddEntity(new Foca(550.0, 120.0,collision_manager));
     scene->AddTask(new EscTask(scene));
     scene->set_background_music(AUDIO_MANAGER()->LoadMusic("another_bites.ogg"));
+    scene->AddTask(collision_manager->GenerateHandleCollisionTask());
 
     engine->PushScene(scene);
     engine->Run();
