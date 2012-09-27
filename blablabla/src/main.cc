@@ -66,6 +66,20 @@ class EscTask : public ugdk::action::Task {
     Scene* scene_;
 };
 
+class FocaCreationTask : public ugdk::action::Task { //Cria focas em (0,0)
+  public:
+    FocaCreationTask(Scene* scene) : scene_(scene) {}
+
+    void operator() (double dt) {
+        ugdk::input::InputManager* input = INPUT_MANAGER();
+        if(input->KeyPressed(ugdk::input::K_e)) {
+            scene_->AddEntity(new Foca(100,100,collision_manager));
+        }
+    }
+  private:
+    Scene* scene_;
+};
+
 void createCollisionStuff(){
 
   ugdk::Vector2D top_left;
@@ -93,9 +107,10 @@ int main(int argc, char *argv[]) {
     createCollisionStuff();
     Scene* scene = new Scene;
     scene->AddEntity(new PlayerFoca(250.0, 350.0, collision_manager)); //Mudei a pos. inicial da player foca for the lulz
-    scene->AddEntity(new Foca(250.0, 80.0,collision_manager));
-    scene->AddEntity(new Foca(550.0, 120.0,collision_manager));
+    //scene->AddEntity(new Foca(250.0, 80.0,collision_manager));
+    //scene->AddEntity(new Foca(550.0, 120.0,collision_manager));
     scene->AddTask(new EscTask(scene));
+    scene->AddTask(new FocaCreationTask(scene));
     scene->set_background_music(AUDIO_MANAGER()->LoadMusic("another_bites.ogg"));
     scene->AddTask(collision_manager->GenerateHandleCollisionTask());
 

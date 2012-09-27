@@ -31,6 +31,7 @@ class Foca : public ugdk::action::Entity {
     ugdk::Vector2D velocity_;
     ugdk::graphic::Node* node_;
     CollisionObject* object_;
+    double delayRotation_;
 };
 
 #endif // FOCA_H

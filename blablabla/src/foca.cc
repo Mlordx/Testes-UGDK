@@ -36,8 +36,8 @@ double randDouble() {
     return rand() / static_cast<double>(RAND_MAX);
 }
 
-Foca::Foca(double x, double y,CollisionManager* manager) : velocity_(200, 0.0) {
-    SolidRectangle* solid = new SolidRectangle(Vector2D(50.0, 50.0));
+Foca::Foca(double x, double y,CollisionManager* manager) : velocity_(200, 0.0), delayRotation_(0) {
+    SolidRectangle* solid = new SolidRectangle(Vector2D(25.0, 25.0));
     solid->set_color(Color(randDouble(), randDouble(), randDouble(), 0.5));
     node_ = new Node(solid);
     node_->modifier()->set_offset(Vector2D(x, y));
@@ -60,15 +60,20 @@ void Foca::Update(double dt) {
     Modifier* modifier = node_->modifier();
     Vector2D nova_pos = modifier->offset();
     double pode_andar = 0.0;
-
+    double random= randDouble();
+    delayRotation_+= dt;
+    if(delayRotation_>1){
+      velocity_=velocity_.Rotate(random);
+      delayRotation_ = 0;
+     }
     nova_pos += velocity_ * dt;
 
     if(nova_pos.x + node_->drawable()->width()/2.0 > 800) {
         pode_andar = modifier->offset().x + node_->drawable()->width()/2.0 - 800;
 
         nova_pos.x += pode_andar - (velocity_.x * dt - pode_andar);
-
         velocity_.x *= -1;
+        
     } else if (nova_pos.x < 0.0 + node_->drawable()->width()/2.0) {
         pode_andar = modifier->offset().x - node_->drawable()->width()/2.0;
 

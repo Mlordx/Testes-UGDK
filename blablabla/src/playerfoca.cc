@@ -62,7 +62,7 @@ PlayerFoca::PlayerFoca(double x, double y, CollisionManager* manager) : velocity
     ///////////////////////////////////////////////////////////////////
     obj->AddCollisionLogic("gFoca", new Bolo()); // Bolo = wubwub
     obj->StartColliding();
-    obj->MoveTo(Vector2D(x,y));
+    //obj->MoveTo(Vector2D(x,y));
 }
 
 void PlayerFoca::Update(double dt) {
