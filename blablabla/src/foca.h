@@ -25,6 +25,7 @@ class Foca : public ugdk::action::Entity {
     ~Foca();
     void Update(double dt);
     void OnSceneAdd(ugdk::action::Scene* scene);
+    void Die() { to_be_removed_ = true; };
 
   private:
     ugdk::Vector2D velocity_;

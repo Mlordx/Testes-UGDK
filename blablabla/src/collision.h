@@ -9,6 +9,8 @@ class Bolo : public pyramidworks::collision::CollisionLogic{
 
   public:
     void Handle(void *bolo){
+        Foca* foca = static_cast<Foca*>(bolo);
+        foca->Die();
         printf("PUTSPUTSPUTSPUTSPUTS\n");
     }
 

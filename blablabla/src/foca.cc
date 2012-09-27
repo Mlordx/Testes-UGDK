@@ -53,6 +53,7 @@ Foca::Foca(double x, double y,CollisionManager* manager) : velocity_(200, 0.0) {
 
 Foca::~Foca(){
 delete node_;
+delete object_;
 }
 
 void Foca::Update(double dt) {
