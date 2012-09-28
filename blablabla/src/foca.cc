@@ -1,6 +1,8 @@
 
 // Header
 #include "foca.h"
+#include "collision.h"
+#include "colisaoFocaFoca.h"
 
 // External Deps
 #include <ugdk/action/entity.h>
@@ -29,6 +31,7 @@ using ugdk::graphic::SolidRectangle;
 using ugdk::input::InputManager;
 using pyramidworks::collision::CollisionManager;
 using pyramidworks::collision::CollisionObject;
+using pyramidworks::collision::CollisionLogic;
 
 
 
@@ -46,7 +49,9 @@ Foca::Foca(double x, double y,CollisionManager* manager) : velocity_(200, 0.0), 
     object_ = new CollisionObject(manager,this);
 
     object_->InitializeCollisionClass("gFoca");
-    object_->set_shape(new pyramidworks::geometry::Rect(50.0, 50.0));
+    object_->set_shape(new pyramidworks::geometry::Rect(25.0, 25.0));
+    CollisionLogic* logic = new FocaFoca(this);
+    object_->AddCollisionLogic("gFoca",logic );
     object_->StartColliding();
     object_->MoveTo(Vector2D(x,y));
 }
@@ -103,5 +108,19 @@ void Foca::Update(double dt) {
 
 void Foca::OnSceneAdd(Scene* scene) {
     scene->content_node()->AddChild(node_);
+}
+
+Vector2D Foca::Position(){
+    return node_->modifier()->offset();
+}
+
+Vector2D Foca::Velocity()
+{
+    return velocity_;
+}
+
+void Foca::setVelocity(Vector2D novaVelocity)
+{
+    velocity_ = novaVelocity;
 }
 

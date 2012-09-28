@@ -18,6 +18,7 @@
 // Using
 using pyramidworks::collision::CollisionManager;
 using pyramidworks::collision::CollisionObject;
+using ugdk::Vector2D;
 
 class Foca : public ugdk::action::Entity {
   public:
@@ -26,6 +27,9 @@ class Foca : public ugdk::action::Entity {
     void Update(double dt);
     void OnSceneAdd(ugdk::action::Scene* scene);
     void Die() { to_be_removed_ = true; };
+    Vector2D Position(); //Retorna a pisição offset
+    Vector2D Velocity(); //Retorna velocidade
+    void setVelocity(Vector2D novaVelocity);
 
   private:
     ugdk::Vector2D velocity_;

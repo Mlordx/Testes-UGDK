@@ -5,6 +5,7 @@
 #include <pyramidworks/collision/collisionlogic.h>
 #include <stdio.h>
 
+
 class Bolo : public pyramidworks::collision::CollisionLogic{
 
   public:
