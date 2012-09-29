@@ -17,13 +17,11 @@ void FocaFoca::Handle(void *bolo){
         if(distancia<25.0){
             if((posFoca1.y - posFoca2.y)*(posFoca1.y - posFoca2.y)< (posFoca1.x - posFoca2.x)*(posFoca1.x - posFoca2.x))
             {
-                velocityFoca2.y*=-1;
                 velocityFoca1.y*=-1;
                 
             }       
             else
             {
-                velocityFoca2.x*=-1;
                 velocityFoca1.x*=-1;
             }  
         }

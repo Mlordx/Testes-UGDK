@@ -123,8 +123,3 @@ void Foca::setVelocity(Vector2D novaVelocity)
 {
     velocity_ = novaVelocity;
 }
-void Foca::setPosition(Vector2D posTemp)
-{
-    node_->modifier()->set_offset(posTemp);
-    object_->MoveTo(posTemp);
-}
