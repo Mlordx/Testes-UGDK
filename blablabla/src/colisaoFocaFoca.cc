@@ -14,20 +14,19 @@ void FocaFoca::Handle(void *bolo){
         Vector2D velocityFoca2 = foca2->Velocity();
         double distancia = sqrt(((posFoca1.y - posFoca2.y)*(posFoca1.y - posFoca2.y)) + ((posFoca1.x - posFoca2.x)*(posFoca1.x - posFoca2.x)));
         
-        if(distancia<25){
+        if(distancia<25.0){
             if((posFoca1.y - posFoca2.y)*(posFoca1.y - posFoca2.y)< (posFoca1.x - posFoca2.x)*(posFoca1.x - posFoca2.x))
             {
-                velocityFoca2.x*=-1;
-                velocityFoca1.x*=-1;
+                velocityFoca2.y*=-1;
+                velocityFoca1.y*=-1;
                 
             }       
             else
             {
-                velocityFoca2.y*=-1;
-                velocityFoca1.y*=-1;
+                velocityFoca2.x*=-1;
+                velocityFoca1.x*=-1;
             }  
         }
-        printf("oi");
         foca2->setVelocity(velocityFoca2);
         foca_->setVelocity(velocityFoca1);
         

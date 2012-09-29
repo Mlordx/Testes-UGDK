@@ -30,6 +30,7 @@ class Foca : public ugdk::action::Entity {
     Vector2D Position(); //Retorna a pisição offset
     Vector2D Velocity(); //Retorna velocidade
     void setVelocity(Vector2D novaVelocity);
+    void setPosition(Vector2D);
 
   private:
     ugdk::Vector2D velocity_;
